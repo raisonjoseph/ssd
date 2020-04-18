@@ -41,17 +41,16 @@ net.setInput(blob)
 detections = net.forward()
 
 # For objects detected find out the region and mark it
-# We check the confidence range along with the one we entered. Confidnece is the acceptable percentage for object to be categorized.
+# We check the confidence range along with the one we entered. Confidence is the acceptable percentage for object to be categorized.
 objects = []
 for i in np.arange(0, detections.shape[2]):
      confidence = detections[0, 0, i, 2]
      if confidence > args["confidence"]:
-	 # constuct a box containg the image
           idx = int(detections[0, 0, i, 1])
           box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+          # region where to draw box
           (startX, startY, endX, endY) = box.astype("int")
           area = "{}: {:.2f}%".format(CLASSES[idx], confidence * 100)  
-          
           item= {}
           item["startX"] =  startX
           item["startY"] = startY
@@ -64,8 +63,8 @@ for i in np.arange(0, detections.shape[2]):
 
 print(len(objects))
 for object in objects:
-
      print("[INFO] {}".format(object["area"]))  
+	# construct a box containing the image
      cv2.rectangle(image, (object["startX"], object["startY"]), (object["endX"], object['endY']), COLORS[object["idx"]], 2)     
      y = object["startY"] - 15 if object["startY"] - 15 > 15 else object["startY"] + 15     
      cv2.putText(image,  object["area"], (object["startX"]+ 5, y),
