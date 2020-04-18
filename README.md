@@ -4,10 +4,13 @@ Single Shot Object Detection
 
 ## How to setup and run
 
-### Python packages
+### Requirements 
 
-`pip install numpy`  
-`pip install opencv-python`  
+- python 3.6 or above
+- Following python packages
+
+  `pip install numpy`  
+  `pip install opencv-python`  
 
 ### Command
 `python main.py --prototxt prototxt.txt --model model.caffemodel --image image.jpg --confidence 0.5`
@@ -19,3 +22,6 @@ Single Shot Object Detection
 #### To run as in ths repo
 `python main.py --prototxt MobileNetSSD_deploy.prototxt.txt --model ./mobilenet_iter_73000.caffemodel --image car.jpg --confidence 0.3
 `
+##### Note
+
+There are few images you can tryout for object detection. Have some fun.
