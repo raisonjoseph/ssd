@@ -14,7 +14,7 @@ Single Shot Object Detection
 - -p or --prototxt : To define the prototext. Give path to the protot text
 - -m or --model : To define moel. GIve path to the model 
 - -i or --image : To define image to detect. Give path to the image
-- -c or --confience :  The acceptance criteria that detection required to categorize. Default is 2.o
+- -c or --confidence :  The acceptance criteria that detection required to categorize. Default is 2.o
 
 #### To run as in ths repo
 `python main.py --prototxt MobileNetSSD_deploy.prototxt.txt --model ./mobilenet_iter_73000.caffemodel --image car.jpg --confidence 0.3
